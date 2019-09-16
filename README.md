@@ -8,6 +8,7 @@ Make sure that both the API and Razor projects are set as start up projects.
 To do this, right-click the solution file and select Set Startup Projects.
 Select Multiple startup projects radio button.
 Set the Action for API and Razor projects as Start or Start without debugging.
+Rebuild solution then run!
 
 Note: I'll improve this whenever I have time. ;)
 
