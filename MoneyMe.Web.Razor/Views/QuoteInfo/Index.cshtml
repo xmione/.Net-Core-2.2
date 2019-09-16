@@ -1,0 +1,98 @@
+﻿@using MoneyMe.EF.ViewModel;
+@model CalculatorView
+@{
+
+    ViewBag.Title = "Calculator-Quote Information";
+}
+
+<div class="row row-padding">
+    <div class="quote-calculator-font">
+        Your Quote
+    </div>
+</div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Your Information
+    </div>
+    <div class="col-md-4">
+        <a href="#" id="edit-info-btn">Edit</a>
+    </div>
+</div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Name
+    </div>
+    <div class="col-md-4">
+        @Model.FirstName  @Model.LastName
+    </div>
+</div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Mobile
+    </div>
+    <div class="col-md-4">
+        @Model.MobileNo
+    </div>
+</div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Email
+    </div>
+    <div class="col-md-4">
+        @Model.EmailAddress
+    </div>
+</div>
+<div class="row row-padding"></div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Finance Details
+    </div>
+    <div class="col-md-4">
+        <a href="#" id="edit-finance-btn">Edit</a>
+    </div>
+</div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Finance amount
+    </div>
+    <div class="col-md-4">
+        @Model.Amount
+    </div>
+</div>
+<div class="row center-block">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        Repayments from
+    </div>
+    <div class="col-md-4">
+        @Model.RepaymentWeekly
+    </div>
+</div>
+<div class="row row-padding">
+    <div class="content-width">
+        <a href="#" id="calculator-btn" class="calculate-btn">Apply</a>
+    </div>
+</div>
+
+<div>
+    <input id="hdn-id" type="hidden" value="@Model.ID" />
+    <input id="hdn-amount" type="hidden" value="@Model.Amount" />
+    <input id="hdn-term" type="hidden" value="@Model.Term" />
+    <input id="hdn-rate" type="hidden" value="@Model.Rate" />
+    <input id="hdn-title" type="hidden" value="@Model.Title" />
+    <input id="hdn-first-name" type="hidden" value="@Model.FirstName" />
+    <input id="hdn-last-name" type="hidden" value="@Model.LastName" />
+    <input id="hdn-email" type="hidden" value="@Model.EmailAddress" />
+    <input id="hdn-mobile" type="hidden" value="@Model.MobileNo" />
+</div>
+@section scripts {
+    <link type="text/css" href="~/css/jquery-ui.css" rel="stylesheet" />
+    <script src="~/js/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/js/calculator.js"></script>
+}

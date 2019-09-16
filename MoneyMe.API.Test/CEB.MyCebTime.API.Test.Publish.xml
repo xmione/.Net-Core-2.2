@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Projects\TFS\Published" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="TestProfile" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/CEB.Amazing.DO.dll" publishTime="09/21/2017 14:33:01" />
+    <file relUrl="bin/CEB.Amazing.UI.Test.dll" publishTime="09/21/2017 14:38:36" />
+    <file relUrl="Styles/repeater.css" publishTime="09/21/2017 08:21:32" />
+    <file relUrl="Styles/Site.css" publishTime="09/21/2017 08:17:47" />
+    <file relUrl="bin/CEB.Amazing.Entity.pdb" publishTime="09/21/2017 13:53:52" />
+    <file relUrl="bin/CEB.Amazing.Helper.pdb" publishTime="09/21/2017 14:33:01" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="09/15/2017 15:20:36" />
+    <file relUrl="Test.svc" publishTime="09/18/2017 09:51:29" />
+    <file relUrl="Scripts/PageJS/AdminUsersPage.js" publishTime="09/21/2017 14:01:41" />
+    <file relUrl="bin/sapnco_utils.dll" publishTime="09/15/2017 15:20:37" />
+    <file relUrl="Scripts/jquery-3.2.1.min.js" publishTime="09/15/2017 15:20:36" />
+    <file relUrl="GroupAccessTestPage.htm" publishTime="09/15/2017 15:20:36" />
+    <file relUrl="Scripts/PageJS/GroupAccess.js" publishTime="09/18/2017 11:20:54" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="09/15/2017 15:20:36" />
+    <file relUrl="bin/CEB.Amazing.Entity.dll" publishTime="09/21/2017 13:53:52" />
+    <file relUrl="bin/AutoMapper.dll" publishTime="09/15/2017 15:20:36" />
+    <file relUrl="bin/NSAPConnector.dll" publishTime="09/21/2017 13:53:51" />
+    <file relUrl="bin/CEB.Amazing.Helper.dll" publishTime="09/21/2017 14:33:01" />
+    <file relUrl="bin/CEB.Amazing.UI.Test.pdb" publishTime="09/21/2017 14:38:36" />
+    <file relUrl="bin/sapnco.dll" publishTime="09/15/2017 15:20:37" />
+    <file relUrl="Web.config" publishTime="09/21/2017 13:54:07" />
+    <file relUrl="bin/CEB.Amazing.BO.pdb" publishTime="09/21/2017 14:38:35" />
+    <file relUrl="bin/CEB.Amazing.DO.pdb" publishTime="09/21/2017 14:33:01" />
+    <file relUrl="Images/loading.gif" publishTime="09/21/2017 07:55:12" />
+    <file relUrl="bin/NSAPConnector.pdb" publishTime="09/21/2017 13:53:51" />
+    <file relUrl="bin/CEB.Amazing.BO.dll" publishTime="09/21/2017 14:38:36" />
+    <file relUrl="AdminUsersTestPage.htm" publishTime="09/21/2017 14:00:50" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="09/15/2017 15:20:36" />
+  </publishProfile>
+</publishData>

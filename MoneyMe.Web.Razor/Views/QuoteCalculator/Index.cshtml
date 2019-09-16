@@ -1,0 +1,123 @@
+﻿@using MoneyMe.EF.Models;
+
+@{
+
+    ViewBag.Title = "Calculator-Calculator";
+}
+
+<div class="row row-padding">
+    <div class="quote-calculator-font">
+        Quote Calculator
+    </div>
+</div>
+<div class="row center-block">
+    <div class="content-width">
+        <div id="slider">
+            <div id="custom-handle" class="ui-slider-handle"></div>
+        </div>
+    </div>
+</div>
+<div class="row min-max-row-padding">
+    <div class="content-width">
+        <div id="min-value" class="min-value"></div>
+        <div class="center-text">How much do you need?</div>
+        <div id="max-value" class="max-value"></div>
+    </div>
+</div>
+<div class="row center-block">
+    <div class="content-width">
+        <div id="term-slider">
+            <div id="term-custom-handle" class="ui-slider-handle"></div>
+        </div>
+    </div>
+</div>
+<div class="row min-max-row-padding">
+    <div class="content-width">
+        <div id="term-min-value" class="min-value"></div>
+        <div class="center-text">Terms</div>
+        <div id="term-max-value" class="max-value"></div>
+    </div>
+</div>
+<div class="row center-block">
+    <div class="content-width">
+        <div id="rate-slider">
+            <div id="rate-custom-handle" class="ui-slider-handle"></div>
+        </div>
+    </div>
+</div>
+<div class="row min-max-row-padding">
+    <div class="content-width">
+        <div id="rate-min-value" class="min-value"></div>
+        <div class="center-text">Rate</div>
+        <div id="rate-max-value" class="max-value"></div>
+    </div>
+</div>
+<div class="row row-padding"></div>
+<div class="row">
+    <div class="content-width">
+        <div class="col-md-4">
+            Title:
+        </div>
+        <div class="col-md-4">
+            First Name:
+        </div>
+        <div class="col-md-4">
+            Last Name:
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="content-width">
+        <div class="col-md-4">
+            <select id="title"></select>
+        </div>
+        <div class="col-md-4">
+            <input id="first-name" type="text" value="@Model.FirstName" />
+        </div>
+        <div class="col-md-4">
+            <input id="last-name" type="text" value="@Model.LastName" />
+        </div>
+    </div>
+</div>
+<div class="row row-padding"></div>
+<div class="row">
+    <div class="content-width">
+        <div class="col-md-6">
+            Email:
+        </div>
+        <div class="col-md-6">
+            Mobile:
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="content-width">
+        <div class="col-md-6">
+            <input id="email-address" type="text" value="@Model.EmailAddress" />
+        </div>
+        <div class="col-md-6">
+            <input id="mobile-no" type="text" value="@Model.MobileNo" />
+        </div>
+    </div>
+</div>
+<div class="row row-padding">
+    <div class="content-width">
+        <a href="#" id="calculate-btn" class="calculate-btn">Calculate quote</a>
+    </div>
+</div>
+<div>
+    <input id="hdn-id" type="hidden" value="@Model.ID" />
+    <input id="hdn-amount" type="hidden" value="@Model.Amount" />
+    <input id="hdn-term" type="hidden" value="@Model.Term" />
+    <input id="hdn-rate" type="hidden" value="@Model.Rate" />
+    <input id="hdn-title" type="hidden" value="@Model.Title" />
+    <input id="hdn-first-name" type="hidden" value="@Model.FirstName" />
+    <input id="hdn-last-name" type="hidden" value="@Model.LastName" />
+    <input id="hdn-email" type="hidden" value="@Model.EmailAddress" />
+    <input id="hdn-mobile" type="hidden" value="@Model.MobileNo" />
+</div>
+@section scripts {
+    <link type="text/css" href="~/css/jquery-ui.css" rel="stylesheet" />
+    <script src="~/js/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/js/calculator.js"></script>
+}

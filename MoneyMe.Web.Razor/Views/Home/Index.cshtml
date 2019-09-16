@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Calculator-Home";
+}
+
+@using (Html.BeginForm("Calculator", "Index"))
+{
+    <div class="row row-padding">
+        <div class="quote-calculator-font">
+            Compose JSON Object
+        </div>
+    </div>
+
+    <div class="row row-padding">
+        <div class="content-width">
+            <div class="col-md-12">
+                <textarea id="json-text" cols="60" rows="20">
+{
+    "AmountRequired":5000, 
+    "Term":2, 
+    "Title":"Mr.", 
+    "FirstName":"John", 
+    "LastName": "doe", 
+    "Mobile":"0422111333", 
+    "Email":"layton@flower.com.au"
+}
+                </textarea>
+            </div>
+
+        </div>
+    </div>
+    <div class="row row-padding">
+        <div class="content-width">
+            <a href="#" id="calculator-btn" class="calculate-btn">Calculate quote</a>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script src="~/js/home.js"></script>
+}

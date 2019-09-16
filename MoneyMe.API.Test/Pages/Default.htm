@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+	<title>Calculator</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<!-- Styles -->
+	<link href="/Styles/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<link href="/Styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="/Content/calculator.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="row row-padding">
+        <div class="quote-calculator-font">
+            Quote Calculator
+        </div>
+    </div>
+    
+    <div class="row row-padding">
+        <div class="content-width">
+            <div class="col-md-12">
+                JSON: <textarea id="json-text" cols="60" rows="20">
+{
+    "AmountRequired":5000, 
+    "Term":2, 
+    "Title":"Mr.", 
+    "FirstName":"John", 
+    "LastName": "doe", 
+    "Mobile":"0422111333", 
+    "Email":"layton@flower.com.au"
+}
+                </textarea>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row row-padding">
+        <div class="content-width">
+            <a href="#" id="calculator-btn" class="calculate-btn">Calculate quote</a>
+        </div>
+    </div>
+
+</body>
+<!-- Scripts -->
+<script src="/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Scripts/MoneyMe.Common.js" type="text/javascript"></script>
+<script src="/Scripts/calculator.js" type="text/javascript"></script>
+
+
+</html>

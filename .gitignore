@@ -1,0 +1,16 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+/.vs
+/MoneyMe.API/obj
+/MoneyMe.API/bin
+/MoneyMe.BO/obj
+/MoneyMe.BO/bin
+/MoneyMe.DO/obj
+/MoneyMe.DO/bin
+/MoneyMe.EF/obj
+/MoneyMe.EF/bin
+/MoneyMe.Web.Razor/obj
+/MoneyMe.Web.Razor/bin
+*.suo
+/MoneyMe/.vs/MoneyMe/v15/Server/sqlite3

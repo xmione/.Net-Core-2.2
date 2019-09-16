@@ -1,0 +1,121 @@
+﻿html {
+	font-size: 14px;
+}
+
+a {
+	cursor: pointer;
+}
+
+table.table a {
+	cursor: pointer;
+}
+
+table.table th,
+table.table td {
+	white-space: nowrap;
+}
+
+#project-amazing .thumbnail {
+	margin: 0;
+}
+
+	#project-amazing .thumbnail img {
+		height: 200px;
+		border-radius: 100px;
+	}
+
+	#project-amazing .thumbnail h4 {
+		color: #0077c8;
+	}
+
+	#project-amazing .thumbnail p {
+		display: block;
+	}
+
+#project-amazing .list-group {
+	margin: 10px;
+}
+
+	#project-amazing .list-group .list-group-item {
+		border-radius: 5px;
+		margin: 5px;
+	}
+
+		#project-amazing .list-group .list-group-item span {
+			color: #f00;
+		}
+
+	#project-amazing .list-group .active {
+		background-color: #0077c8;
+	}
+
+		#project-amazing .list-group .active span {
+			color: #fff;
+		}
+
+#project-amazing .page-header {
+	border-bottom: 2.5px solid #fbe122;
+	padding-bottom: 0px;
+}
+
+	#project-amazing .page-header h4 {
+		display: block;
+	}
+
+#project-amazing .content .row {
+	border-bottom: 1px solid #eee;
+	margin: 15px 0;
+}
+
+#project-amazing .content .row-header {
+	background-color: #eee;
+	border-radius: 5px;
+	text-align: center;
+}
+
+	#project-amazing .content .row-header h5 {
+		font-weight: bold;
+	}
+
+.container {
+	margin: 15px auto;
+}
+
+.custom-modal-background {
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	display: none;
+	filter: alpha(opacity=90);
+	margin: 0;
+	opacity: 0.90;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+.custom-modal {
+	height: auto;
+	width: 50%;
+	display: none;
+	position: fixed;
+	z-index: 99999;
+}
+
+.label {
+	font-size: 100%;
+}
+
+.label-success {
+	background-color: #5cb85c;
+}
+
+.label-danger {
+	background-color: #ff6d68;
+}
+
+input[type="checkbox"] {
+	border-color: #999;
+}
