@@ -14,3 +14,4 @@
 /MoneyMe.Web.Razor/bin
 *.suo
 /MoneyMe/.vs/MoneyMe/v15/Server/sqlite3
+/MoneyMe/.vs/MoneyMe/DesignTimeBuild/.dtbcache

@@ -79,5 +79,43 @@ namespace MoneyMe.DO
                 throw ex;
             }
         }
+
+        public List<Quote> GetQuoteDetails()
+        {
+            try
+            {
+                var quotes = new List<Quote>();
+                using (var context = new MoneyMeContext())
+                {
+                    quotes = context.Quotes.ToList();
+                }
+
+                return quotes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteQuoteDetailsByID(int id)
+        {
+            try
+            {
+                Quote quote = new Quote();
+                using (var context = new MoneyMeContext())
+                {
+                    quote = context.Quotes.FirstOrDefault(q => q.ID.Equals(id));
+                    if (quote != null)
+                    {
+                        context.Remove(quote);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

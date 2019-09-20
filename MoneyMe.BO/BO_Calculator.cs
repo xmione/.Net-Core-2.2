@@ -111,5 +111,29 @@ namespace MoneyMe.BO
                 throw ex;
             }
         }
+        public List<Quote> GetQuoteDetails()
+        {
+            try
+            {
+                var quotes = new List<Quote>();
+                quotes = _do.GetQuoteDetails();
+                return quotes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void DeleteQuoteDetailsByID(int id)
+        {
+            try
+            {
+                _do.DeleteQuoteDetailsByID(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoneyMe.API.Models;
 using MoneyMe.BO;
+using MoneyMe.EF;
 using MoneyMe.EF.Models;
 using Newtonsoft.Json.Linq;
 using System;
@@ -44,10 +45,9 @@ namespace MoneyMe.API.Controllers
                 quote.EmailAddress = parameters["EmailAddress"].ToObject<string>();
                 quote.MobileNo = parameters["MobileNo"].ToObject<string>();
 
-                BO_Calculator bo = new BO_Calculator();
+                
                 ReturnObject ro = new ReturnObject();
-                bo.PostQuote(quote);
-                ro.Result = quote;
+                ro.Result = PostQuoteDetails(quote); 
 
                 return ro;
             }
@@ -130,5 +130,138 @@ namespace MoneyMe.API.Controllers
                 throw ex;
             }
         }
+
+        private Quote PostQuoteDetails(Quote quote)
+        {
+            try
+            {
+
+                BO_Calculator bo = new BO_Calculator();
+
+                return bo.PostQuote(quote);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #region React Methods
+
+        [HttpPost("GetQuoteDetails")]
+        public ReturnObject GetQuoteDetails()
+        {
+            try
+            {
+
+                ReturnObject ro = new ReturnObject();
+                ro.Result = new BO_Calculator().GetQuoteDetails();
+
+                return ro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost("GetQuoteDetailsByID")]
+        public ReturnObject GetQuoteDetailsByID([FromBody] JObject jObject)
+        {
+            try
+            {
+                JToken parameters = jObject;
+
+
+                Quote model = new Quote();
+                model.ID = parameters["ID"].ToObject<int>();
+
+                ReturnObject ro = new ReturnObject();
+                ro.Result = new BO_Calculator().Get(model.ID);
+
+                return ro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost("InsertQuoteDetails")]
+        public ReturnObject InsertQuoteDetails([FromBody]JObject jObject)
+        {
+            try
+            {
+                JToken parameters = jObject;
+
+                Quote quote = new Quote();
+                quote.Amount = parameters["Amount"].ToObject<decimal>();
+                quote.Rate = 10;
+                quote.Term = parameters["Term"].ToObject<int>();
+                quote.Title = parameters["Title"].ToObject<string>();
+                quote.FirstName = parameters["FirstName"].ToObject<string>();
+                quote.LastName = parameters["LastName"].ToObject<string>();
+                quote.EmailAddress = parameters["EmailAddress"].ToObject<string>();
+                quote.MobileNo = parameters["MobileNo"].ToObject<string>();
+
+                BO_Calculator bo = new BO_Calculator();
+                ReturnObject ro = new ReturnObject();
+                ro.Result = PostQuoteDetails(quote);
+
+                return ro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost("UpdateQuoteDetails")]
+        public ReturnObject UpdateQuoteDetails([FromBody]JObject jObject)
+        {
+            try
+            {
+                JToken parameters = jObject;
+
+                Quote quote = new Quote();
+                quote.ID = parameters["ID"].ToObject<int>();
+                quote.Amount = parameters["Amount"].ToObject<decimal>();
+                quote.Term = parameters["Term"].ToObject<int>();
+                quote.TermType = parameters["TermType"].ToObject<Calculator.TermTypes>();
+                quote.Rate = parameters["Rate"].ToObject<decimal>();
+                quote.RepaymentMonthly = parameters["RepaymentMonthly"].ToObject<decimal>();
+                quote.RepaymentWeekly = parameters["RepaymentWeekly "].ToObject<decimal>();
+                quote.Title = parameters["Title"].ToObject<string>();
+                quote.FirstName = parameters["FirstName"].ToObject<string>();
+                quote.LastName = parameters["LastName"].ToObject<string>();
+                quote.EmailAddress = parameters["EmailAddress"].ToObject<string>();
+                quote.MobileNo = parameters["MobileNo"].ToObject<string>();
+
+                BO_Calculator bo = new BO_Calculator();
+                ReturnObject ro = new ReturnObject();
+                ro.Result = PostQuoteDetails(quote);
+
+                return ro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost("DeleteQuoteDetailsByID")]
+        public void DeleteQuoteDetailsByID([FromBody] JObject jObject)
+        {
+            try
+            {
+                JToken parameters = jObject;
+                BO_Calculator bo = new BO_Calculator();
+
+                int quoteID = parameters["ID"].ToObject<int>();
+
+                ReturnObject ro = new ReturnObject();
+                bo.DeleteQuoteDetailsByID(quoteID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
     }
 }
