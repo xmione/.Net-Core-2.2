@@ -220,18 +220,18 @@ namespace MoneyMe.API.Controllers
                 JToken parameters = jObject;
 
                 Quote quote = new Quote();
-                quote.ID = parameters["ID"].ToObject<int>();
-                quote.Amount = parameters["Amount"].ToObject<decimal>();
-                quote.Term = parameters["Term"].ToObject<int>();
-                quote.TermType = parameters["TermType"].ToObject<Calculator.TermTypes>();
-                quote.Rate = parameters["Rate"].ToObject<decimal>();
-                quote.RepaymentMonthly = parameters["RepaymentMonthly"].ToObject<decimal>();
-                quote.RepaymentWeekly = parameters["RepaymentWeekly "].ToObject<decimal>();
-                quote.Title = parameters["Title"].ToObject<string>();
-                quote.FirstName = parameters["FirstName"].ToObject<string>();
-                quote.LastName = parameters["LastName"].ToObject<string>();
-                quote.EmailAddress = parameters["EmailAddress"].ToObject<string>();
-                quote.MobileNo = parameters["MobileNo"].ToObject<string>();
+                quote.ID = parameters["id"].ToObject<int>();
+                quote.Amount = parameters["amount"].ToObject<decimal>();
+                quote.Term = parameters["term"].ToObject<int>();
+                quote.TermType = parameters["termType"].ToObject<Calculator.TermTypes>();
+                quote.Rate = parameters["rate"].ToObject<decimal>();
+                quote.RepaymentMonthly = parameters["repaymentMonthly"].ToObject<decimal>();
+                quote.RepaymentWeekly = parameters["repaymentWeekly "].ToObject<decimal>();
+                quote.Title = parameters["title"].ToObject<string>();
+                quote.FirstName = parameters["firstName"].ToObject<string>();
+                quote.LastName = parameters["lastName"].ToObject<string>();
+                quote.EmailAddress = parameters["emailAddress"].ToObject<string>();
+                quote.MobileNo = parameters["mobileNo"].ToObject<string>();
 
                 BO_Calculator bo = new BO_Calculator();
                 ReturnObject ro = new ReturnObject();

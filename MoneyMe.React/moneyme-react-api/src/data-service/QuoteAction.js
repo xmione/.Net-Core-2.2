@@ -36,10 +36,10 @@ class QuoteActionApp extends Component {
     this.setState({ isAddQuote: true });
     this.setState({ isQuoteDetails: false });
     if (this.state.isEditQuote) {
-     axios.put(apiUrl + 'UpdateQuoteDetails',data).then(result => {
-      alert(result.data);
+     axios.post(apiUrl + 'UpdateQuoteDetails',data).then(result => {
+      alert(result.result);
         this.setState({
-          response:result,  
+          response:result.result,  
           isAddQuote: false,
           isEditQuote: false
         })
@@ -90,7 +90,7 @@ class QuoteActionApp extends Component {
     return (
       <div className="App">
         <Container>
-          <h1 style={{ textAlign: 'center' }}>CRUD operation in React</h1>
+          <h1 style={{ textAlign: 'center' }}>Quote List</h1>
           <hr></hr>
           {!this.state.isQuoteDetails && <Button variant="primary" onClick={() => this.onDetails()}> Quote Details</Button>}
           {!this.state.isAddQuote && <Button variant="primary" onClick={() => this.onCreate()}>Add Quote</Button>}

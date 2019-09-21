@@ -56,7 +56,7 @@ class QuoteList extends React.Component{
                       <tr>
                         <th>Amount</th>
                         <th>Term</th>
-                        <th>Term Type</th>
+                        <th hidden>Term Type</th>
                         <th>Rate</th>
                         <th>Repayment Monthly</th>
                         <th>Repayment Weekly</th>
@@ -72,7 +72,7 @@ class QuoteList extends React.Component{
                         <tr key={quote.id}>
                           <td>{quote.amount}</td>
                           <td>{quote.term}</td>
-                          <td>{quote.termType}</td>
+                          <td hidden>{quote.termType}</td>
                           <td>{quote.rate}</td>
                           <td>{quote.repaymentMonthly}</td>
                           <td>{quote.repaymentWeekly}</td>

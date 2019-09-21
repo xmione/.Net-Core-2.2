@@ -21,8 +21,8 @@ class AddQuote extends React.Component {
       MobileNo: ''
     }
 
-    if (props.quote.result.id) {
-      this.state = props.quote
+    if (props.quote.result !== undefined) {
+      this.state = props.quote.result
     } else {
       this.state = this.initialState;
     }
@@ -49,7 +49,7 @@ class AddQuote extends React.Component {
   render() {
     let pageTitle;
     let actionStatus;
-    if (this.state.result.id) {
+    if (this.state.id) {
 
       pageTitle = <h3>Edit Quote</h3>
       actionStatus = <b>Update</b>
@@ -69,8 +69,8 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="Amount"
-                  value={this.state.result.amount}
                   onChange={this.handleChange}
+                  defaultValue={this.state.amount}
                   placeholder="Amount" />
               </Form.Group>
               <Form.Group controlId="Term">
@@ -78,45 +78,44 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="Term"
-                  value={this.state.result.term}
                   onChange={this.handleChange}
+                  defaultValue={this.state.term}
                   placeholder="Term" />
               </Form.Group>
-              <Form.Group controlId="TermType">
+              <Form.Group controlId="TermType" hidden>
                 <Form.Label>Term Type</Form.Label>
                 <Form.Control
                   type="text"
                   name="TermType"
-                  value={this.state.result.termType}
+                  value={this.state.termType}
                   onChange={this.handleChange}
-                  placeholder="Term Type" 
-                  hidden/>
+                  placeholder="Term Type" />
               </Form.Group>
               <Form.Group controlId="Rate">
                 <Form.Label>Rate</Form.Label>
                 <Form.Control
                   type="text"
                   name="Rate"
-                  value={this.state.result.rate}
                   onChange={this.handleChange}
+                  defaultValue={this.state.rate}
                   placeholder="Rate" />
               </Form.Group>        
-              <Form.Group controlId="RepaymentMonthly">
+              <Form.Group controlId="RepaymentMonthly" hidden>
                 <Form.Label>RepaymentMonthly</Form.Label>
                 <Form.Control
                   type="text"
                   name="RepaymentMonthly"
-                  value={this.state.result.repaymentMonthly}
                   onChange={this.handleChange}
+                  defaultValue={this.state.repaymentMonthly}
                   placeholder="Repayment Monthly" />
               </Form.Group>
-              <Form.Group controlId="RepaymentWeekly">
+              <Form.Group controlId="RepaymentWeekly" hidden>
                 <Form.Label>RepaymentWeekly</Form.Label>
                 <Form.Control
                   type="text"
                   name="RepaymentWeekly"
-                  value={this.state.result.repaymentWeekly}
                   onChange={this.handleChange}
+                  defaultValue={this.state.repaymentWeekly}
                   placeholder="Repayment Weekly" />
               </Form.Group>      
               <Form.Group controlId="Title">
@@ -124,8 +123,8 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="Title"
-                  value={this.state.result.Title}
                   onChange={this.handleChange}
+                  defaultValue={this.state.title}
                   placeholder="Title" />
               </Form.Group>
               <Form.Group controlId="FirstName">
@@ -133,8 +132,8 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="FirstName"
-                  value={this.state.result.firstName}
                   onChange={this.handleChange}
+                  defaultValue={this.state.firstName}
                   placeholder="First Name" />
               </Form.Group>
               <Form.Group controlId="LastName">
@@ -142,8 +141,8 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="LastName"
-                  value={this.state.result.lastName}
                   onChange={this.handleChange}
+                  defaultValue={this.state.lastName}
                   placeholder="Last Name" />
               </Form.Group>
               <Form.Group controlId="EmailAddress">
@@ -151,8 +150,8 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="EmailAddress"
-                  value={this.state.result.emailAddress}
                   onChange={this.handleChange}
+                  defaultValue={this.state.emailAddress}
                   placeholder="Email Address" />
               </Form.Group>
               <Form.Group controlId="MobileNo">
@@ -160,12 +159,12 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="MobileNo"
-                  value={this.state.result.mobileNo}
                   onChange={this.handleChange}
+                  defaultValue={this.state.mobileNo}
                   placeholder="MobileNo" />
               </Form.Group>
               <Form.Group>
-                <Form.Control type="hidden" name="ID" value={this.state.result.id} />
+                <Form.Control type="hidden" name="ID" value={this.state.id} />
                 <Button variant="success" type="submit">{actionStatus}</Button>          
 
               </Form.Group>
