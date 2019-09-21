@@ -49,8 +49,7 @@ class AddQuote extends React.Component {
   render() {
     let pageTitle;
     let actionStatus;
-    alert("State ID = " + this.state.ID);
-    if (this.state.ID) {
+    if (this.state.result.id) {
 
       pageTitle = <h3>Edit Quote</h3>
       actionStatus = <b>Update</b>
@@ -66,11 +65,11 @@ class AddQuote extends React.Component {
           <Col sm={7}>
             <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="Amount">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label>Amount</Form.Label>
                 <Form.Control
                   type="text"
                   name="Amount"
-                  value={this.state.Amount}
+                  value={this.state.result.amount}
                   onChange={this.handleChange}
                   placeholder="Amount" />
               </Form.Group>
@@ -79,16 +78,26 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="Term"
-                  value={this.state.TermType}
+                  value={this.state.result.term}
                   onChange={this.handleChange}
-                  placeholder="Term Type" />
+                  placeholder="Term" />
+              </Form.Group>
+              <Form.Group controlId="TermType">
+                <Form.Label>Term Type</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="TermType"
+                  value={this.state.result.termType}
+                  onChange={this.handleChange}
+                  placeholder="Term Type" 
+                  hidden/>
               </Form.Group>
               <Form.Group controlId="Rate">
                 <Form.Label>Rate</Form.Label>
                 <Form.Control
                   type="text"
                   name="Rate"
-                  value={this.state.FirstName}
+                  value={this.state.result.rate}
                   onChange={this.handleChange}
                   placeholder="Rate" />
               </Form.Group>        
@@ -97,16 +106,16 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="RepaymentMonthly"
-                  value={this.state.RepaymentMonthly}
+                  value={this.state.result.repaymentMonthly}
                   onChange={this.handleChange}
                   placeholder="Repayment Monthly" />
               </Form.Group>
               <Form.Group controlId="RepaymentWeekly">
-                <Form.Label>RepaymentMonthly</Form.Label>
+                <Form.Label>RepaymentWeekly</Form.Label>
                 <Form.Control
                   type="text"
                   name="RepaymentWeekly"
-                  value={this.state.RepaymentWeekly}
+                  value={this.state.result.repaymentWeekly}
                   onChange={this.handleChange}
                   placeholder="Repayment Weekly" />
               </Form.Group>      
@@ -115,7 +124,7 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="Title"
-                  value={this.state.Title}
+                  value={this.state.result.Title}
                   onChange={this.handleChange}
                   placeholder="Title" />
               </Form.Group>
@@ -124,7 +133,7 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="FirstName"
-                  value={this.state.FirstName}
+                  value={this.state.result.firstName}
                   onChange={this.handleChange}
                   placeholder="First Name" />
               </Form.Group>
@@ -133,7 +142,7 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="LastName"
-                  value={this.state.LastName}
+                  value={this.state.result.lastName}
                   onChange={this.handleChange}
                   placeholder="Last Name" />
               </Form.Group>
@@ -142,7 +151,7 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="EmailAddress"
-                  value={this.state.EmailAddress}
+                  value={this.state.result.emailAddress}
                   onChange={this.handleChange}
                   placeholder="Email Address" />
               </Form.Group>
@@ -151,12 +160,12 @@ class AddQuote extends React.Component {
                 <Form.Control
                   type="text"
                   name="MobileNo"
-                  value={this.state.MobileNo}
+                  value={this.state.result.mobileNo}
                   onChange={this.handleChange}
                   placeholder="MobileNo" />
               </Form.Group>
               <Form.Group>
-                <Form.Control type="hidden" name="ID" value={this.state.id} />
+                <Form.Control type="hidden" name="ID" value={this.state.result.id} />
                 <Button variant="success" type="submit">{actionStatus}</Button>          
 
               </Form.Group>

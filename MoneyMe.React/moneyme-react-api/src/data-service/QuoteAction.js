@@ -65,7 +65,7 @@ class QuoteActionApp extends Component {
 
         this.setState({
           isEditQuote: true,
-          isAddQuote: true,
+          isAddQuote: false,
           quoteData: result.data         
         });
       },
