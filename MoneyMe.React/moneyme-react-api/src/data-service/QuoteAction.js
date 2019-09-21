@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Grid, Row, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import QuoteList from './GetQuote';
 import AddQuote from './AddQuote';
 import axios from 'axios';
@@ -61,7 +61,7 @@ class QuoteActionApp extends Component {
   editQuote = ID => {
 
     this.setState({ isQuoteDetails: false });
-   axios.get(apiUrl + "GetQuoteDetailsByID/" + ID).then(result => {
+   axios.post(apiUrl + "GetQuoteDetailsByID", {"ID":ID}).then(result => {
 
         this.setState({
           isEditQuote: true,
@@ -89,8 +89,7 @@ class QuoteActionApp extends Component {
 
     return (
       <div className="App">
-        <Grid>
-          <Row>
+        <Container>
           <h1 style={{ textAlign: 'center' }}>CRUD operation in React</h1>
           <hr></hr>
           {!this.state.isQuoteDetails && <Button variant="primary" onClick={() => this.onDetails()}> Quote Details</Button>}
@@ -98,8 +97,7 @@ class QuoteActionApp extends Component {
           <br></br>
           {!this.state.isAddQuote && <QuoteList editQuote={this.editQuote} />}
           {quoteForm}
-          </Row>
-        </Grid>
+        </Container>
       </div>
     );
   }

@@ -21,7 +21,7 @@ class AddQuote extends React.Component {
       MobileNo: ''
     }
 
-    if (props.quote.ID) {
+    if (props.quote.result.id) {
       this.state = props.quote
     } else {
       this.state = this.initialState;
@@ -49,9 +49,10 @@ class AddQuote extends React.Component {
   render() {
     let pageTitle;
     let actionStatus;
+    alert("State ID = " + this.state.ID);
     if (this.state.ID) {
 
-      pageTitle = <h2>Edit Quote</h2>
+      pageTitle = <h3>Edit Quote</h3>
       actionStatus = <b>Update</b>
     } else {
       pageTitle = <h2>Add Quote</h2>
@@ -155,7 +156,7 @@ class AddQuote extends React.Component {
                   placeholder="MobileNo" />
               </Form.Group>
               <Form.Group>
-                <Form.Control type="hidden" name="ID" value={this.state.ID} />
+                <Form.Control type="hidden" name="ID" value={this.state.id} />
                 <Button variant="success" type="submit">{actionStatus}</Button>          
 
               </Form.Group>

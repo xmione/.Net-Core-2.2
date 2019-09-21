@@ -147,7 +147,7 @@ namespace MoneyMe.API.Controllers
         }
         #region React Methods
 
-        [HttpPost("GetQuoteDetails")]
+        [HttpGet("GetQuoteDetails")]
         public ReturnObject GetQuoteDetails()
         {
             try

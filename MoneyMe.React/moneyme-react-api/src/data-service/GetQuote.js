@@ -19,7 +19,7 @@ class QuoteList extends React.Component{
        axios.get(apiUrl + 'GetQuoteDetails').then(response => response.data).then(
             (result)=>{
                 this.setState({
-                    quotes:result
+                    quotes:result.result
                 });
             },
             (error)=>{
@@ -31,7 +31,7 @@ class QuoteList extends React.Component{
     
     deleteQuote(ID) {
       const { quotes } = this.state;   
-     axios.delete(apiUrl + '/DeleteQuoteDetails/' + ID).then(result=>{
+     axios.delete(apiUrl + 'DeleteQuoteDetails', {"ID":ID}).then(result=>{
        alert(result.data);
         this.setState({
           response:result,
@@ -51,7 +51,6 @@ class QuoteList extends React.Component{
         {
             return(
          <div>
-                    
                   <Table>
                     <thead className="btn-primary">
                       <tr>
@@ -70,22 +69,20 @@ class QuoteList extends React.Component{
                     </thead>
                     <tbody>
                       {quotes.map(quote => (
-                        <tr key={quote.ID}>
-                          <td>{quote.Amount}</td>
-                          <td>{quote.Term}</td>
-                          <td>{quote.TermType}</td>
-                          <td>{quote.Rate}</td>
-                          <td>{quote.RepaymentMonthly}</td>
-                          <td>{quote.RepaymentWeekly}</td>
-                          <td>{quote.Title}</td>
-                          <td>{quote.FirstName}</td>
-                          <td>{quote.LastName}</td>
-                          <td>{quote.EmailAddress}</td>
-                          <td>{quote.MobileNo}</td>
-                          <td><Button variant="info" onClick={() => this.props.ediQuote(quote.ID)}>Edit</Button>  &nbsp;&nbsp;&nbsp;
-                          <Button variant="danger" onClick={() => this.deleteQuote(quote.ID)}>Delete</Button>
-                        
-                          </td>
+                        <tr key={quote.id}>
+                          <td>{quote.amount}</td>
+                          <td>{quote.term}</td>
+                          <td>{quote.termType}</td>
+                          <td>{quote.rate}</td>
+                          <td>{quote.repaymentMonthly}</td>
+                          <td>{quote.repaymentWeekly}</td>
+                          <td>{quote.title}</td>
+                          <td>{quote.firstName}</td>
+                          <td>{quote.lastName}</td>
+                          <td>{quote.emailAddress}</td>
+                          <td>{quote.mobileNo}</td>
+                          <td><Button variant="info" onClick={() => this.props.editQuote(quote.id)}>Edit</Button></td>
+                          <td><Button variant="danger" onClick={() => this.deleteQuote(quote.id)}>Delete</Button></td>
                         </tr>
                       ))}
                     </tbody>
