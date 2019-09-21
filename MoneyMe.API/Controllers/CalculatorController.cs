@@ -12,6 +12,12 @@ namespace MoneyMe.API.Controllers
     [ApiController]
     public class CalculatorController : ControllerBase
     {
+        [HttpGet("Get")]
+        public ActionResult<string> Get()
+        {
+            return "MoneyMe - Quote Calculator";
+        }
+
         [HttpGet("TestMethod")]
         public ReturnObject TestMethod()
         {

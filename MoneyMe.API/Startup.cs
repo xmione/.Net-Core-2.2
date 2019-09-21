@@ -40,8 +40,19 @@ namespace MoneyMe.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
-            
+            //app.UseMvc();
+            //app.UseDefaultFiles(new DefaultFilesOptions
+            //{
+            //    DefaultFileNames = new List<string> { "index.html" }
+            //});
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Calculator}/{action=Get}");
+            });
+
         }
     }
 }
