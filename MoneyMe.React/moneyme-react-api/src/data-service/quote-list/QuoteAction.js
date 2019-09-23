@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import { Container, Button } from 'react-bootstrap';
-import QuoteList from './GetQuote';
-import AddQuote from './AddQuote';
+import QuoteList from '../quote-list/GetQuote';
+import AddQuote from '../quote-list/AddQuote';
 import axios from 'axios';
 const apiUrl = 'http://localhost:26344/api/Calculator/';
 
@@ -41,8 +41,12 @@ class QuoteActionApp extends Component {
           response:result.result,  
           isAddQuote: false,
           isEditQuote: false
-        })
-      });
+        });
+      },
+      (error) => {
+        this.setState({ error });
+      })
+      
     } else {
    
      axios.post(apiUrl + 'InsertQuoteDetails',data).then(result => {
@@ -51,9 +55,13 @@ class QuoteActionApp extends Component {
           isAddQuote: false,
           isEditQuote: false
         })
+      },
+      (error) => {
+        this.setState({ error });
       });
+      
     }
-  
+    // window.location.reload();
   }
 
   editQuote = ID => {

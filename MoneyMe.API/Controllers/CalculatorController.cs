@@ -226,18 +226,18 @@ namespace MoneyMe.API.Controllers
                 JToken parameters = jObject;
 
                 Quote quote = new Quote();
-                quote.ID = parameters["id"].ToObject<int>();
-                quote.Amount = parameters["amount"].ToObject<decimal>();
-                quote.Term = parameters["term"].ToObject<int>();
-                quote.TermType = parameters["termType"].ToObject<Calculator.TermTypes>();
-                quote.Rate = parameters["rate"].ToObject<decimal>();
-                quote.RepaymentMonthly = parameters["repaymentMonthly"].ToObject<decimal>();
-                quote.RepaymentWeekly = parameters["repaymentWeekly "].ToObject<decimal>();
-                quote.Title = parameters["title"].ToObject<string>();
-                quote.FirstName = parameters["firstName"].ToObject<string>();
-                quote.LastName = parameters["lastName"].ToObject<string>();
-                quote.EmailAddress = parameters["emailAddress"].ToObject<string>();
-                quote.MobileNo = parameters["mobileNo"].ToObject<string>();
+                quote.ID = parameters["ID"] == null ? parameters["id"].ToObject<int>() : parameters["ID"].ToObject<int>() == 0 ? parameters["id"].ToObject<int>() : parameters["ID"].ToObject<int>();
+                quote.Amount = parameters["Amount"] == null ? parameters["amount"].ToObject<decimal>() : parameters["Amount"].ToObject<decimal>() == 0 ? parameters["amount"].ToObject<decimal>(): parameters["Amount"].ToObject<decimal>();
+                quote.Term = parameters["Term"] == null ? parameters["term"].ToObject<int>() : parameters["Term"].ToObject<int>() == 0 ? parameters["amount"].ToObject<int>() : parameters["Term"].ToObject<int>();
+                quote.TermType = parameters["TermType"] == null ? parameters["termType"].ToObject<Calculator.TermTypes>(): parameters["TermType"].ToObject<Calculator.TermTypes>();
+                quote.Rate = parameters["Rate"] == null ? parameters["rate"].ToObject<decimal>() : parameters["Rate"].ToObject<decimal>() == 0 ? parameters["rate"].ToObject<decimal>() : parameters["Rate"].ToObject<decimal>();
+                quote.RepaymentMonthly = parameters["RepaymentMonthly"] == null ? parameters["repaymentMonthly"].ToObject<decimal>() : parameters["RepaymentMonthly"].ToObject<decimal>() == 0 ? parameters["repaymentMonthly"].ToObject<decimal>() : parameters["RepaymentMonthly"].ToObject<decimal>();
+                quote.RepaymentWeekly = parameters["RepaymentWeekly"] == null ? parameters["repaymentWeekly"].ToObject<decimal>() : parameters["RepaymentWeekly"].ToObject<decimal>() == 0 ? parameters["repaymentWeekly"].ToObject<decimal>() : parameters["RepaymentWeekly"].ToObject<decimal>();
+                quote.Title = parameters["Title"] == null ? parameters["title"].ToObject<string>() : parameters["Title"].ToObject<string>();
+                quote.FirstName = parameters["FirstName"] == null ? parameters["firstName"].ToObject<string>() : parameters["FirstName"].ToObject<string>();
+                quote.LastName = parameters["LastName"] == null ? parameters["lastName"].ToObject<string>() : parameters["LastName"].ToObject<string>();
+                quote.EmailAddress = parameters["EmailAddress"] == null ? parameters["emailAddress"].ToObject<string>() : parameters["EmailAddress"].ToObject<string>();
+                quote.MobileNo = parameters["MobileNo"] == null ? parameters["mobileNo"].ToObject<string>() : parameters["MobileNo"].ToObject<string>();
 
                 BO_Calculator bo = new BO_Calculator();
                 ReturnObject ro = new ReturnObject();
