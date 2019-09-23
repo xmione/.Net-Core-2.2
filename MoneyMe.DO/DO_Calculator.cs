@@ -110,6 +110,7 @@ namespace MoneyMe.DO
                     {
                         context.Remove(quote);
                     }
+                    context.SaveChanges();
                 }
             }
             catch (Exception ex)

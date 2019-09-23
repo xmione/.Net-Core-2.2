@@ -51,10 +51,10 @@ class AddQuote extends React.Component {
     let actionStatus;
     if (this.state.id) {
 
-      pageTitle = <h3>Edit Quote</h3>
+      pageTitle = <b>Edit Quote</b>
       actionStatus = <b>Update</b>
     } else {
-      pageTitle = <h2>Add Quote</h2>
+      pageTitle = <b>Add Quote</b>
       actionStatus = <b>Save</b>
     }
 

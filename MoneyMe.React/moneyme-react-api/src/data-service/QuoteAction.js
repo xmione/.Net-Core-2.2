@@ -37,7 +37,6 @@ class QuoteActionApp extends Component {
     this.setState({ isQuoteDetails: false });
     if (this.state.isEditQuote) {
      axios.post(apiUrl + 'UpdateQuoteDetails',data).then(result => {
-      alert(result.result);
         this.setState({
           response:result.result,  
           isAddQuote: false,
@@ -47,7 +46,6 @@ class QuoteActionApp extends Component {
     } else {
    
      axios.post(apiUrl + 'InsertQuoteDetails',data).then(result => {
-      alert(result.data);
         this.setState({
           response:result,  
           isAddQuote: false,
@@ -76,6 +74,26 @@ class QuoteActionApp extends Component {
    
   }
 
+  
+  deleteQuote = ID => {
+
+    this.setState({ isQuoteDetails: false });
+   axios.post(apiUrl + "DeleteQuoteDetailsByID", {"ID":ID}).then(result => {
+
+        this.setState({
+          isEditQuote: false,
+          isAddQuote: false,
+        });
+        window.location.reload();
+        
+      },
+      (error) => {
+        this.setState({ error });
+      }
+    )
+   
+  }
+
 
   render() {
   
@@ -95,7 +113,7 @@ class QuoteActionApp extends Component {
           {!this.state.isQuoteDetails && <Button variant="primary" onClick={() => this.onDetails()}> Quote Details</Button>}
           {!this.state.isAddQuote && <Button variant="primary" onClick={() => this.onCreate()}>Add Quote</Button>}
           <br></br>
-          {!this.state.isAddQuote && <QuoteList editQuote={this.editQuote} />}
+          {!this.state.isAddQuote && <QuoteList editQuote={this.editQuote} deleteQuote={this.deleteQuote} />}
           {quoteForm}
         </Container>
       </div>

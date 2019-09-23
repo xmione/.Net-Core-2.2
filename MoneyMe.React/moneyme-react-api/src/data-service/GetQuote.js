@@ -27,19 +27,7 @@ class QuoteList extends React.Component{
             }
         )
     }
-
     
-    deleteQuote(ID) {
-      const { quotes } = this.state;   
-     axios.delete(apiUrl + 'DeleteQuoteDetails', {"ID":ID}).then(result=>{
-       alert(result.data);
-        this.setState({
-          response:result,
-          quotes:quotes.filter(quote=>quote.ID !== ID)
-        });
-      });
-    }
-
     render(){       
         const{error,quotes}=this.state;
         if(error){
@@ -82,7 +70,7 @@ class QuoteList extends React.Component{
                           <td>{quote.emailAddress}</td>
                           <td>{quote.mobileNo}</td>
                           <td><Button variant="info" onClick={() => this.props.editQuote(quote.id)}>Edit</Button></td>
-                          <td><Button variant="danger" onClick={() => this.deleteQuote(quote.id)}>Delete</Button></td>
+                          <td><Button variant="danger" onClick={() => this.props.deleteQuote(quote.id)}>Delete</Button></td>
                         </tr>
                       ))}
                     </tbody>
