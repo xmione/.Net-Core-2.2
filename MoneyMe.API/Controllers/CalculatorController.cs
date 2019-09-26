@@ -191,21 +191,21 @@ namespace MoneyMe.API.Controllers
             }
         }
         [HttpPost("InsertQuoteDetails")]
-        public ReturnObject InsertQuoteDetails([FromBody]JObject jObject)
+        public ReturnObject InsertQuoteDetails([FromBody] JObject jObject)
         {
             try
             {
                 JToken parameters = jObject;
 
                 Quote quote = new Quote();
-                quote.Amount = parameters["Amount"].ToObject<decimal>();
-                quote.Rate = 10;
-                quote.Term = parameters["Term"].ToObject<int>();
-                quote.Title = parameters["Title"].ToObject<string>();
-                quote.FirstName = parameters["FirstName"].ToObject<string>();
-                quote.LastName = parameters["LastName"].ToObject<string>();
-                quote.EmailAddress = parameters["EmailAddress"].ToObject<string>();
-                quote.MobileNo = parameters["MobileNo"].ToObject<string>();
+                quote.Amount = parameters["amount"].ToObject<decimal>();
+                quote.Rate = parameters["rate"].ToObject<decimal>();
+                quote.Term = parameters["term"].ToObject<int>();
+                quote.Title = parameters["title"].ToObject<string>();
+                quote.FirstName = parameters["firstName"].ToObject<string>();
+                quote.LastName = parameters["lastName"].ToObject<string>();
+                quote.EmailAddress = parameters["emailAddress"].ToObject<string>();
+                quote.MobileNo = parameters["mobileNo"].ToObject<string>();
 
                 BO_Calculator bo = new BO_Calculator();
                 ReturnObject ro = new ReturnObject();
