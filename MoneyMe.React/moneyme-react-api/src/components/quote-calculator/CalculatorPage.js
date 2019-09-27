@@ -14,7 +14,7 @@ class CalculatorPage extends Component {
       isAddQuote: false,
       error: null,
       response: {},
-      quoteData: {},
+      quoteData: this.props.data,
       isEditQuote: false,
       isQuoteDetails:true,
     }

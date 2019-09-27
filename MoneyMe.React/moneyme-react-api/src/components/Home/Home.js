@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import CalculatorPage from '../quote-calculator/CalculatorPage';
 import { Grid, Col, Row, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './Home.css';
@@ -12,20 +14,27 @@ class HomePage extends Component {
       super(props);
       this.initialState = { 
           isAddQuote: true,
-          isEditQuote: false,
-          jsonData:[{
-                        AmountRequired:5000, 
-                        Term:2, 
-                        Title:"Mr.", 
-                        FirstName:"John", 
+          jsonData:{
+                        AmountRequired: 5000, 
+                        Term: 2, 
+                        Title: "Mr.", 
+                        FirstName: "John", 
                         LastName: "doe", 
-                        Mobile:"0422111333", 
-                        Email:"layton@flower.com.au"
-          }],
-          jsontext: "{}"
+                        Mobile: "0422111333", 
+                        Email: "layton@flower.com.au"
+          },
+          jsontext: "{\r\n" 
+                      +"\t\"AmountRequired\": 5000,\r\n" 
+                      +"\t\"Term\": 2,\r\n" 
+                      +"\t\"Title\": \"Mr.\",\r\n"
+                      +"\t\"FirstName\": \"John\",\r\n"
+                      +"\t\"LastName\": \"doe\",\r\n"
+                      +"\t\"Mobile\": \"0422111333\",\r\n"
+                      +"\t\"Email\": \"layton@flower.com.au\"\r\n"
+                   +"}"
       };
 
-      if (props.quote.result !== undefined) {
+      if (props.quote !== undefined) {
         this.state = props.quote.result
       } else {
         this.state = this.initialState;
@@ -46,11 +55,37 @@ class HomePage extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        var data = this.state;
-        this.setState({ isAddQuote: true });
-        this.setState({ isQuoteDetails: false });
-        if (this.state.isEditQuote) {
-         axios.post(apiUrl + 'UpdateQuoteDetails', data).then(result => {
+        this.setState({
+          jsonData: JSON.parse(this.state.jsontext)
+        });
+        var data = {
+          amount:this.state.jsonData.AmountRequired,
+          rate:0,
+          term:this.state.jsonData.Term,
+          title:this.state.jsonData.Title,
+          firstName:this.state.jsonData.FirstName,
+          lastName:this.state.jsonData.LastName,
+          emailAddress:this.state.jsonData.Email,
+          mobileNo:this.state.jsonData.Mobile
+        }
+        if (this.state.isAddQuote) {
+          axios.post(apiUrl + 'InsertQuoteDetails', data).then(result => {
+         
+            this.setState({
+              response:result,  
+              isAddQuote: false,
+              isEditQuote: false
+            });
+            
+            ReactDOM.render(<CalculatorPage data={data}/>, document.getElementById('root'));
+          },
+          (error) => {
+            this.setState({ error });
+          });
+           
+        } else {
+       
+          axios.post(apiUrl + 'UpdateQuoteDetails', data).then(result => {
             this.setState({
               response:result.result,  
               isAddQuote: false,
@@ -60,22 +95,6 @@ class HomePage extends Component {
           (error) => {
             this.setState({ error });
           })
-          
-        } else {
-       
-        //axios.get(apiUrl + 'GetQuoteDetails').then(result => {
-        axios.post(apiUrl + 'InsertQuoteDetails', data).then(result => {
-         
-            this.setState({
-              response:result,  
-              isAddQuote: false,
-              isEditQuote: false
-            })
-          },
-          (error) => {
-            this.setState({ error });
-          });
-          
         }
         // window.location.reload();
     }
@@ -85,7 +104,7 @@ class HomePage extends Component {
     }
 
     render() {
-        let jsonData = "{\r\n"  + this.state.jsonData.map(e=>JSON.stringify(e).replace(/{|}/g,'').replace(/,/g,',\r\n')).join(',\n') + "\r\n}";
+        
         return (
             <Grid>
                 <Row>
@@ -98,7 +117,7 @@ class HomePage extends Component {
                         <div className="row row-padding">
                             <div className="content-width">
                                 <div className="col-md-12">
-                                    <textarea id="jsontext" ref={(c) => this.state.jsontext } name="jsontext" cols="60" rows="10" defaultValue={jsonData}  onChange={this.handleChange} />
+                                    <textarea id="jsontext" ref={(c) => this.state.jsontext } name="jsontext" cols="60" rows="10" defaultValue={this.state.jsontext}  onChange={this.handleChange} />
                                 </div>
                             </div>
                         </div>
