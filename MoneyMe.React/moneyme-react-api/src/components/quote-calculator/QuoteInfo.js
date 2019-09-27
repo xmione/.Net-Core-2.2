@@ -38,7 +38,8 @@ class QuoteInfo extends React.Component{
         else
         {
             return(
-         <div>
+                
+                <div>
                   <Table>
                     <thead className="btn-primary">
                       <tr>

@@ -59,6 +59,7 @@ class HomePage extends Component {
           jsonData: JSON.parse(this.state.jsontext)
         });
         var data = {
+          id:0,
           amount:this.state.jsonData.AmountRequired,
           rate:0,
           term:this.state.jsonData.Term,
@@ -72,12 +73,13 @@ class HomePage extends Component {
           axios.post(apiUrl + 'InsertQuoteDetails', data).then(result => {
          
             this.setState({
-              response:result,  
+              response:result,
+              data : result.data.result,  
               isAddQuote: false,
               isEditQuote: false
             });
             
-            ReactDOM.render(<CalculatorPage data={data}/>, document.getElementById('root'));
+            ReactDOM.render(<CalculatorPage data={this.state.data}/>, document.getElementById('root'));
           },
           (error) => {
             this.setState({ error });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Grid, Button } from 'react-bootstrap';
+import { Grid, Row, Button } from 'react-bootstrap';
 import QuoteInfo from '../quote-calculator/QuoteInfo';
 import EditQuoteInfo from '../quote-calculator/EditQuoteInfo';
 import axios from 'axios';
@@ -11,7 +11,7 @@ class CalculatorPage extends Component {
     super(props);
 
     this.state = {
-      isAddQuote: false,
+      isAddQuote: true,
       error: null,
       response: {},
       quoteData: this.props.data,
@@ -114,14 +114,25 @@ class CalculatorPage extends Component {
 
     return (
       <div className="App">
+        
         <Grid>
-          <h1 style={{ textAlign: 'center' }}>Quote List</h1>
-          <hr></hr>
-          {!this.state.isQuoteDetails && <Button variant="primary" onClick={() => this.onDetails()}> Quote Details</Button>}
-          {!this.state.isAddQuote && <Button variant="primary" onClick={() => this.onCreate()}>Add Quote</Button>}
-          <br></br>
-          {!this.state.isAddQuote && <QuoteInfo editQuote={this.editQuote} deleteQuote={this.deleteQuote} />}
-          {quoteForm}
+          <Row>
+            <h1 style={{ textAlign: 'center' }}>Calculate Quote</h1>
+            <hr></hr>
+            <br></br>
+            {quoteForm}
+            
+          </Row>
+          {/* <Row>
+            <h1 style={{ textAlign: 'center' }}>Quote List</h1>
+            <hr></hr>
+            {!this.state.isQuoteDetails && <Button variant="primary" onClick={() => this.onDetails()}> Quote Details</Button>}
+            {!this.state.isAddQuote && <Button variant="primary" onClick={() => this.onCreate()}>Add Quote</Button>}
+            <br></br>
+            {!this.state.isAddQuote && <QuoteInfo editQuote={this.editQuote} deleteQuote={this.deleteQuote} />}
+            {quoteForm}
+          </Row> */}
+          
         </Grid>
       </div>
     );
